@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Will you marry mee?</title>
+
+<style>
+  /* Background color animation */
+  @keyframes bgColor {
+    0%   { background-color: #0f172a; }
+    25%  { background-color: #1e1b4b; }
+    50%  { background-color: #0f766e; }
+    75%  { background-color: #7c2d12; }
+    100% { background-color: #0f172a; }
+  }
+
+  /* Box animation */
+  @keyframes boxBreath {
+    0% { transform: scale(1); box-shadow:0 12px 30px rgba(255,255,255,0.1); }
+    50% { transform: scale(1.05); box-shadow:0 16px 40px rgba(255,255,255,0.3); }
+    100% { transform: scale(1); box-shadow:0 12px 30px rgba(255,255,255,0.1); }
+  }
+
+  body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    animation: bgColor 12s infinite alternate;
+    color:#ffffff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+  }
+
+  .card{
+    background:rgba(30,41,59,0.85);
+    padding:30px;
+    border-radius:18px;
+    width:350px;
+    text-align:center;
+    animation: boxBreath 4s infinite ease-in-out;
+  }
+
+  h1{
+    margin-bottom:10px;
+  }
+
+  p{
+    margin-bottom:25px;
+    color:#cbd5e1;
+  }
+
+  .buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+  }
+
+  button{
+    padding:12px 22px;
+    border:none;
+    font-size:16px;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.2s;
+  }
+
+  #yes{
+    background: linear-gradient(180deg, #ff7b7b, #ff5050);
+  }
+
+  #yes:hover{
+    transform: scale(1.08);
+  }
+
+  #no{
+    background:#475569;
+  }
+
+  #no:hover{
+    transform: scale(1.05);
+  }
+
+  #result{
+    margin-top:20px;
+    font-size:18px;
+    color:#ff7b7b;
+    font-weight:bold;
+    display:none;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Will you marry mee, Sana? 💍</h1>
+  <p>You mean the world to me ❤️</p>
+
+  <div class="buttons">
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+  </div>
+
+  <div id="result"></div>
+</div>
+
+<script>
+  const herName = "INAS"; // Change her name here ❤️
+
+  const yesBtn = document.getElementById("yes");
+  const noBtn = document.getElementById("no");
+  const result = document.getElementById("result");
+
+  const excuses = [
+    `Are you sure, ${herName}? 😢`,
+    `Please think again, ${herName} 😭`,
+    `Don't break his heart, ${herName} 💔`,
+    `Really sure?? ${herName} 😳`,
+    `Just press YES, ${herName} 👀`,
+    `Come on… say yes please, ${herName} 😭`,
+    `One more chance?? 🥺 ${herName}`,
+    `${herName}, noooo 😢`,
+    `${herName}, he will cry 😭`,
+    `Please reconsider, ${herName} 💘`
+  ];
+
+  yesBtn.addEventListener("click", () => {
+    result.style.display = "block";
+    result.textContent = `YYayyy! I knew you'd say yes, ${herName}! 😁`;
+  });
+
+  noBtn.addEventListener("click", () => {
+    const random = excuses[Math.floor(Math.random() * excuses.length)];
+    noBtn.textContent = random;
+  });
+</script>
+
+</body>
+</html>
